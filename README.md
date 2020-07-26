@@ -23,3 +23,4 @@
 
 - [ ] nginx以及python WSGI 这些部署的爷子们；
 - [ ] 底层的TCP/IP协议族和socket编程；
+- [ ] spark/hardoop 之类的搞一个；
