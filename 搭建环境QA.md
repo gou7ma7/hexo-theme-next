@@ -41,9 +41,12 @@ AuthorsizedKeysFile .ssh/authorized_keys //指定公钥数据库文件
 
 2. 具体那个配置文件不要改错了， 教材上面都是默认root账户来教你，我当时登录上去根本没有这个文件（因为以前没用root搞过  
 
+3. 教程上面的版本可能不一样，直接复制添加到文件里面可能因为版本不同所以文件名不同，导致添加失败
+
+
 各个配置文件区别如下：
 
-> ~/.bashrc和 ~/.bash_profile, ~/.profile 用于各个用户，这里的~符号就是各当前用户的$HOME
+> ~/.bashrc和 ~/.bash_profile,  ~ /.profile 用于各个用户，这里的~符号就是各当前用户的$HOME
 
 > ~/.bash_profile 和 ~/.profile 只在登陆时读取一次。
 
