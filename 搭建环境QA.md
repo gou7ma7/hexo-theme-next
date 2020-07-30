@@ -46,7 +46,7 @@ AuthorsizedKeysFile .ssh/authorized_keys //指定公钥数据库文件
 
 各个配置文件区别如下：
 
-> ~/.bashrc和 ~/.bash_profile,  ~ /.profile 用于各个用户，这里的~符号就是各当前用户的$HOME
+> ~/.bashrc和 ~/.bash_profile,  \~/.profile 用于各个用户，这里的\~符号就是各当前用户的$HOME
 
 > ~/.bash_profile 和 ~/.profile 只在登陆时读取一次。
 
