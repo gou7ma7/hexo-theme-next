@@ -36,11 +36,15 @@ AuthorsizedKeysFile .ssh/authorized_keys //指定公钥数据库文件
 
 # 在ssh 终端找不到环境变量的问题
 问题描述：按照教程apt-get 之后手动在添加到profile文件之后依旧Command 'node' not found
+
 1. 注意自己当前的登录账户，我之前不是root，~/ 出来的肯定就只能自己享受了
 
-2. 具体那个配置文件不要改错了， 教材上面都是默认root账户来教你，我当时登录上去根本没有这个文件（因为以前没用root搞过
-~/.bashrc和 ~/.bash_profile, ~/.profile 用于各个用户，这里的"~"符号就是各当前用户的$HOME
+2. 具体那个配置文件不要改错了， 教材上面都是默认root账户来教你，我当时登录上去根本没有这个文件（因为以前没用root搞过  
 
-~/.bash_profile 和 ~/.profile 只在登陆时读取一次。
+各个配置文件区别如下：
 
-~/.bashrc 每次都读取
+> ~/.bashrc和 ~/.bash_profile, ~/.profile 用于各个用户，这里的~符号就是各当前用户的$HOME
+
+> ~/.bash_profile 和 ~/.profile 只在登陆时读取一次。
+
+> ~/.bashrc 每次都读取
