@@ -1,5 +1,5 @@
 # MySQL clinet局域网访问 mysqld
-1. （使用docker启动）这个没啥说的，直接docker run 一把过，唯一注意的就是如果宿主机上开开始了mysqld，docker run -p的端口号就要换一个了；
+1. （使用docker启动）这个没啥说的，直接docker run 一把过，唯一注意的就是如果宿主机上在已经启动过mysqld了，那么docker run -p的端口号就要换一个了；
 2. （我就是要联系自己搭建咋说）：按照教程里面进入>mysql，也创建用户update user set user.Host='%' where user.User='root'; 本机是没有问题的，但是另一台机器局域网登录的时候就报61 "Connection refused"；
 3. 之前公司里面都是叫网管然后秒解决，现在要自力更生了。
 4. 首先再另一台机器client里面乱输入一个ip地址，报错为"Unknown MySQL server host"，不同于之前的被拒绝连接，说明host是ok，使用netstat -apn | grep 3306，看到tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      1016/mysqld         绑定到127.0.0.1，也就是回环了；
