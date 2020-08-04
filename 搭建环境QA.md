@@ -1,3 +1,16 @@
+# MySQL clinet局域网访问 mysqld
+1. （使用docker启动）这个没啥说的，直接docker run 一把过，唯一注意的就是如果宿主机上开开始了mysqld，docker run -p的端口号就要换一个了；
+2. （我就是要联系自己搭建咋说）：按照教程里面进入>mysql，也创建用户update user set user.Host='%' where user.User='root'; 本机是没有问题的，但是另一台机器局域网登录的时候就报61 "Connection refused"；
+3. 之前公司里面都是叫网管然后秒解决，现在要自力更生了。
+4. 首先再另一台机器client里面乱输入一个ip地址，报错为"Unknown MySQL server host"，不同于之前的被拒绝连接，说明host是ok，使用netstat -apn | grep 3306，看到tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      1016/mysqld         绑定到127.0.0.1，也就是回环了；
+5. 目前既然知道是由于网络没有走通，那肯定就是配置的问题了，我找到mysql的配置文件，其中里面有很多中说法，我不愿意深究，改成功的是/etc/mysql/mysql.conf.d/mysqld.cnf里边的bind-address;
+6. 之后连接提示为1698 - Access denied for user 'root'@'IP'，说明现在的问题是密码设置的问题，大概要做的就是在启动的时候或者配置文件里面弄好连接密码，到时候client连接对口供就ok，我这边局域网只玩就直接空密码了，反正以后也不会去没有网管的公司。
+
+
+# 局域网ssh延迟非常严重的问题
+1. 首先考虑ping该ip，如果出现丢包严重延迟正常就重启路由器，不能解决再排查；
+2. 上诉不能解决或延迟≥100ms，考虑被ARP攻击、有人蹭网or下片、操作系统层面or物理设备问题等；
+
 # ssh ubuntu 无法使用root账户登陆问题
 改ssh本身的配置文件  
 sshd服务的配置文件默认在/etc/ssh/sshd_config，正确调整相关配置项，可以进一步提高sshd远程登录的安全性。
