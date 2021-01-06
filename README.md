@@ -12,6 +12,10 @@
 - [ ] gitlab的搭建与 gitlab CI/CD；
 - [ ] 使用uWSGI、gunicorn + nginx 等方式部署Python项目；
 
+## 信息安全基础知识
+- [ ] https的建立
+- [ ] 加密算法
+- [ ] 图解密码技术
 ## DB
 - [ ] Mysql的引擎相关、事务、一致性保证、联表、分表分页等问题
 ## 本科课程
