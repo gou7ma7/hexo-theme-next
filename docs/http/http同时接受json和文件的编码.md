@@ -26,6 +26,6 @@ Content-Type: multipart/form-data
 >解释：*1 使用requests构造HTTP请求的话，不要显示的设置headers={'Content-Type': 'multipart/form-data'}，因为不能给定boundary 解析会失败
 
 # 原因剖析
-先进的HTTP请求库如requests在构造请求的时候会根据post的不同参数自行构造Content-Type，因为平时根本没有注意；
+先进的HTTP请求库如requests在构造请求的时候会根据post的不同参数自行构造Content-Type，因此平时根本没有注意；
 
 在写业务时遇到该问题，也没能沉下心好好试验一下，总想网上找篇文章一抄了之解决问题。
