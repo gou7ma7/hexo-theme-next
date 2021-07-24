@@ -77,7 +77,7 @@
 ~~具体的前因后果和一些情绪逼逼，在这里  <https://v2ex.com/t/692219>  之前也在工作之余做过一些项目，但是应其他队友的要求，就没法开源，只能自己从头来过，所以当真正遇到想看我代码的人的时候，除了现场做题，我是有义务展示自己的代码的，这和面试我的老哥说的，还是要注意营销这句话一个道理。~~
 
 # 3. HOW
-- [ ] leetcode [solution](./数据结构的轮子与算法.md)
+- [ ] leetcode [solution](docs/数据结构的轮子与算法.md)
 - [ ] book / mook blogs 
 - [ ] flask source code
 - [ ] selenium source code
