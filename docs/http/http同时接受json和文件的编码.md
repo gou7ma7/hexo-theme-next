@@ -27,5 +27,4 @@ Content-Type: multipart/form-data
 
 # 原因剖析
 先进的HTTP请求库如requests在构造请求的时候会根据post的不同参数自行构造Content-Type，因此平时根本没有注意；
-
 在写业务时遇到该问题，也没能沉下心好好试验一下，总想网上找篇文章一抄了之解决问题。
