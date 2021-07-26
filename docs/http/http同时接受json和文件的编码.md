@@ -19,12 +19,19 @@ Content-Type: multipart/form-data
 |请求类型|  Content-Type   | requests.post参数  | flask.request取值对象 | flask.request取值结果| 备注 |
 |  ----  | ----  |  ----  | ----  | --- | --- |
 | 参数  | application/json  | json=data | request.get_json(), request.json| 均有，dict | Content-Type自动: application/json|
-| 文件  | multipart/form-data; boundary= |files=files|request.files|有，ImmutableMultiDict| 见*1|
+| 文件  | multipart/form-data; boundary= |files=files|request.files|有，ImmutableMultiDict| 见**解释*1**|
 | 参数  | application/x-www-form-urlencoded  | data={'json': data} | request.form| 有，ImmutableMultiDict | 按照表单编码|
-| 参数 文件  | multipart/form-data; boundary= |data={'json': data}, files=files|request.form，request.files|有，分开取| 混合编码|
+| 参数 文件  | multipart/form-data; boundary= |data={'json': data}, files=files|request.form，request.files|有，分开取| 混合编码，抓包信息见**解释*2**|
 
->解释：*1 使用requests构造HTTP请求的话，不要显示的设置headers={'Content-Type': 'multipart/form-data'}，因为不能给定boundary 解析会失败
+>解释*：
+> 1. 使用requests构造HTTP请求的话，**不要显示的设置headers={'Content-Type': 'multipart/form-data'}**，因为不能给定boundary具体的值，接口解析会失败
+> 2. 请求体body中同时有json字符串和文件的抓包，raw格式（原始格式）的结构类似如下，可以看到键值对是按照表单编码，文件是按照二进制格式编码之后，再组成键值对进行表单编码
+> ![raw格式的请求体](../images/http_upload_01.png)
+> 更加直观的webForms格式查看该请求的结构如下![webForms格式的请求体](../images/http_upload_02.png)
+> **如果使用其他语言或者HTTP请求请求库，请自行按照上述方法进行请求的构造**
+>
+
 
 # 原因剖析
-先进的HTTP请求库如requests在构造请求的时候会根据post的不同参数自行构造Content-Type，因此平时根本没有注意；
+先进的HTTP请求库如requests在构造请求的时候会根据post的不同参数自行构造Content-Type，因此平时根本没有注意；  
 在写业务时遇到该问题，也没能沉下心好好试验一下，总想网上找篇文章一抄了之解决问题。
