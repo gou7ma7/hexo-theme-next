@@ -2,6 +2,10 @@
 .DS_Store
 */.DS_Store 
 
+# bak
+*.bak
+*/*.bak
+
 ### Example user template template
 ### Example user template
 
