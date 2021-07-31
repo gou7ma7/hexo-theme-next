@@ -11,7 +11,7 @@ def get_h1_list(doc_path):
             url_path = file_path.replace(os.sep, '/')
             if file_name.endswith('.md'):  # 只处理.md
                 title = os.path.split(file_name)[1].split('.')[0]
-                h1_list.append(f'- [{title}]({file_path})')
+                h1_list.append(f'- [{title}]({url_path})')
                 for h1_in_md in get_h1_line(file_path):
                     if h1_in_md:  # 过滤没有h1的
                         h1_list.append(
