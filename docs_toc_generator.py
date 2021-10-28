@@ -1,22 +1,18 @@
 import os
 
 
-h1_list = []
-
-
-def get_h1_list(doc_path):
+def get_toc_list(doc_path):
+    toc_list = []
     for path, dirs, files in os.walk(doc_path):
+        print('===', path, dirs, files)
+        if path not in ['docs', f'docs{os.sep}images']:
+            toc_list.append(f'- [{path}]({os.path.join(path, path).replace(os.sep, "/")})')
         for file_name in files:
             file_path = os.path.join(path, file_name)
             url_path = file_path.replace(os.sep, '/')
             if file_name.endswith('.md'):  # 只处理.md
-                title = os.path.split(file_name)[1].split('.')[0]
-                h1_list.append(f'- [{title}]({url_path})')
-                for h1_in_md in get_h1_line(file_path):
-                    if h1_in_md:  # 过滤没有h1的
-                        h1_list.append(
-                            f"{' ' * 2 * file_path.count(os.sep)}" + f'- [{h1_in_md}]({url_path}#{h1_in_md})')
-    return h1_list
+                toc_list.append(f"{' ' * 2 * file_path.count(os.sep)}" + f'- [{file_name}]({url_path})')
+    return toc_list
 
 
 def get_h1_line(md_path):
@@ -26,7 +22,7 @@ def get_h1_line(md_path):
                 yield line.lstrip('# ').rstrip('\n')
 
 
-for _ in get_h1_list('docs'):
+for _ in get_toc_list('docs'):
     print(_)
 
 print('alter toc in readme.md after last ---')
@@ -35,18 +31,8 @@ readme_filename = 'README.md' if 'README.md' in os.listdir('.') else 'readme.md'
 
 
 def alter_readme_toc(file, new_h1_list):
-    file_bak = "%s.bak" % file
-    with open(file, "r", encoding="utf-8") as f1:
-        content = f1.read()
-    r_loc = content.rfind('\ntoc\n---')
-    content = content[:r_loc] +'\ntoc\n---\n\n' + '\n'.join(new_h1_list)
+    with open(file, "w", encoding="utf-8") as f:
+        f.write('\n'.join(new_h1_list))
 
-    # 删除源文件 + 备份
-    if os.path.exists(file_bak):
-        os.remove(file_bak)
-    os.rename(file, file_bak)
-    
-    with open(file,"w",encoding="utf-8") as f:
-        f.write(content)
- 
-alter_readme_toc(readme_filename, h1_list)
+
+alter_readme_toc(readme_filename, get_toc_list('docs'))
