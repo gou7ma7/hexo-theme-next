@@ -15,24 +15,11 @@ def get_toc_list(doc_path):
     return toc_list
 
 
-def get_h1_line(md_path):
-    with open(md_path, 'r', encoding='utf8') as f:
-        for line in f.readlines():
-            if line.startswith('# '):
-                yield line.lstrip('# ').rstrip('\n')
-
-
-for _ in get_toc_list('docs'):
-    print(_)
-
-print('alter toc in readme.md after last ---')
-
-readme_filename = 'README.md' if 'README.md' in os.listdir('.') else 'readme.md'
-
-
-def alter_readme_toc(file, new_h1_list):
+def gen_toc2readme(file, new_h1_list):
     with open(file, "w", encoding="utf-8") as f:
         f.write('\n'.join(new_h1_list))
 
 
-alter_readme_toc(readme_filename, get_toc_list('docs'))
+if __name__ == '__main__':
+    readme_filename = 'README.md' if 'README.md' in os.listdir('.') else 'readme.md'
+    gen_toc2readme(readme_filename, get_toc_list('docs'))
