@@ -9,4 +9,5 @@
 - [docs\http](docs/http/docs/http)
     - [http同时接受json和文件的编码.md](docs/http/http同时接受json和文件的编码.md)
 - [docs\idea_from_leetcode](docs/idea_from_leetcode/docs/idea_from_leetcode)
+    - [1st_hard中位数.md](docs/idea_from_leetcode/1st_hard中位数.md)
     - [yield与二叉树遍历.md](docs/idea_from_leetcode/yield与二叉树遍历.md)
