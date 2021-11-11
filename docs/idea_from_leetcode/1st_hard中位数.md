@@ -1,3 +1,4 @@
+第一道Hard，做了5年。
 # 题干
 https://leetcode.com/problems/median-of-two-sorted-arrays/
 
