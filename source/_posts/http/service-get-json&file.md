@@ -1,10 +1,16 @@
-flask同时接收json字符串和文件时候的编码该如何设置
+---
+title: Web Service同时json字符串和文件，编码该如何设置
+date: 2022-05-29 18:38:17
+tags: Python
+categories: Web Service
+---
 
 # 需求
-现在有一个api，请求的时候有json字符串、文件，或者两者都有，应该怎样设置接口协议。
+现在有一个Web Service的api，请求的时候有json字符串、文件，或者两者都有，应该怎样设置接口协议。（以Flask为例）
 
 # 背景
 在 HTTP 协议消息头中，使用 Content-Type 来表示请求和响应中的媒体类型信息。
+<!--more-->
 
 Content-Type: application/json;charset:utf-8;
 
@@ -26,8 +32,8 @@ Content-Type: multipart/form-data
 >解释*：
 > 1. 使用requests构造HTTP请求的话，**不要显示的设置headers={'Content-Type': 'multipart/form-data'}**，因为不能给定boundary具体的值，接口解析会失败
 > 2. 请求体body中同时有json字符串和文件的抓包，raw格式（原始格式）的结构类似如下，可以看到键值对是按照表单编码，文件是按照二进制格式编码之后，再组成键值对进行表单编码
-> ![raw格式的请求体](../images/http_upload_01.png)
-> 更加直观的webForms格式查看该请求的结构如下![webForms格式的请求体](../images/http_upload_02.png)
+> ![raw格式的请求体](/images/http_upload_01.png)
+> 更加直观的webForms格式查看该请求的结构如下![webForms格式的请求体](/images/http_upload_02.png)
 > **如果使用其他语言或者HTTP请求请求库，请自行按照上述方法进行请求的构造**
 >
 

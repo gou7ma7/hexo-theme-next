@@ -1,4 +1,12 @@
-# 第一道Hard，做了5年。
+---
+title: hard 4. Median of Two Sorted Arrays -- 第一道Hard，做了5年。
+date: 2022-05-29 08:48:59
+tags: 
+  - Hard
+  - OJ
+categories: Leetcode
+---
+
 # 题干
 https://leetcode.com/problems/median-of-two-sorted-arrays/
 
