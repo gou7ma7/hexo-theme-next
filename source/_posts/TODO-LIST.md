@@ -5,10 +5,14 @@ tags: TodoList
 categories: Career
 ---
 
+## Schedule
+1. 云机器 + 远程开发
+2. Prometheus + Grafana + ClickHouse 
+3. Django
 
 ## 0. Blog
 - [ ] leetcode [solution](docs/数据结构的轮子与算法.md)
-- [ ] book / mook blogs 
+- [x] book / mook blogs 
 - [ ] flask source code
 - [ ] selenium source code
 - [ ] requests source code

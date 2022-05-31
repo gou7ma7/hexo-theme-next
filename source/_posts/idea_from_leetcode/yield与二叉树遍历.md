@@ -2,8 +2,8 @@
 title: 从二叉树遍历到yield # TODO
 date: 2022-05-29 08:48:59
 tags: 
-  - Hard
-  - OJ
+  - python
+  - computer
 categories: Leetcode
 ---
 
@@ -17,6 +17,7 @@ categories: Leetcode
 在python中实现了__iter__和__next__方法，可以迭代操作的对象就叫迭代器；  
 构建迭代器的时候，并不一次性加载所有元素到内存，只有调用next方法的时候才会**返回**需要的该元素；
 
+<!--more-->
 
 生成器就是一种迭代器，由生成器函数返回；  
 生成器函数就是上文中的 return -> yield的函数；  
