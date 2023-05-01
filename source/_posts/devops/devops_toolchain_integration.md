@@ -1,3 +1,13 @@
+---
+title: DevOps Toolchain Integration Setup
+# date: 2023-04-30 15:54:17
+tags: setup
+categories: DevOps
+---
+
+# 期望
+作为个人工作中实际用到的DevOps相关工具链的整合搭建，同时也作为新手上手DevOps的Quick Setup。
+
 # 背景
 长话短说:
 
@@ -13,6 +23,8 @@
 
 之前的工作中部分组件是我去的时候已经安装、配置好了的，因此在这里把用到的工具链进行全流程的安装，回顾并系统的梳理技术栈，同时也作为新手上手DevOps的Quick Setup。
 
+<!--more-->
+
 # 机器
 Ubuntu 实体机 *1 + WSL *4
 
@@ -23,7 +35,7 @@ Ubuntu 实体机 *1 + WSL *4
 
 同时在私有化部署的时候使用[kubesphere](https://kubesphere.io/zh/)，本文主要使用后者进行物理机上的部署。
 
-[kubernetes](kubernetes.md)
+[kubernetes](../kubernetes)
 # Helm
 The package manager for Kubernetes
 
